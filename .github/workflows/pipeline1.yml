@@ -42,14 +42,11 @@ jobs:
           docker push $DOCKER_IMAGE:latest
 
       # Run SonarQube scan
-      - name: SonarQube Scan
-        uses: SonarSource/sonarcloud-github-action@v1.10
+      - name: Official SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v3.0.0
         with:
           projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=GithubProject
-            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
-            -Dsonar.login=${{ env.SONAR_TOKEN }}
+          
     
   # Quality Gate check
   quality-gate:
