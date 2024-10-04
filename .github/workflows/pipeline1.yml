@@ -46,11 +46,16 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v3.0.0
         with:
           projectBaseDir: .
+          args: >
+           -Dsonar.projectKey=GithubProject
+           -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
+           -Dsonar.login=${{ env.SONAR_TOKEN }}
+           -Dsonar.working.directory=./.scannerwork
           
     
   # Quality Gate check
   quality-gate:
-    
+    needs: build-and-scan
     runs-on: ubuntu-latest
 
     steps:
