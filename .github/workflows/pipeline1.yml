@@ -7,15 +7,16 @@ on:
   pull_request:
     branches:
       - master
+env:
+      DOCKER_IMAGE: karthikamn/python-app
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}      
 
 jobs:
   Checkout-code:
     runs-on: ubuntu-latest
 
-    env:
-      DOCKER_IMAGE: karthikamn/python-app
-      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+    
     
     steps:
       # Checkout the repository
