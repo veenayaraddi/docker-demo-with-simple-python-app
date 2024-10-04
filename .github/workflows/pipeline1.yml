@@ -51,6 +51,11 @@ jobs:
            -Dsonar.host.url=${{ env.SONAR_HOST_URL }}
            -Dsonar.login=${{ env.SONAR_TOKEN }}
            -Dsonar.working.directory=./.scannerwork
+           
+      - name: Print SonarQube Logs
+        run: |
+          ls -al .scannerwork
+          cat .scannerwork/report-task.txt || echo "report-task.txt not found"
           
     
   # Quality Gate check
