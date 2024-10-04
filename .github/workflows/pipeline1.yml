@@ -50,7 +50,7 @@ jobs:
     
   # Quality Gate check
   quality-gate:
-    needs: build-and-scan
+    
     runs-on: ubuntu-latest
 
     steps:
