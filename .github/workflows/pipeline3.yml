@@ -1,0 +1,13 @@
+name: First Worklfow
+on:
+ push:
+
+ workflow_dispatch:
+
+jobs:
+ echo-data:
+  runs-on: ubuntu-latest
+  steps: 
+    
+    - run: echo "Hello"
+ 
